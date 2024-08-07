@@ -13,10 +13,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun firstWork(onFinished: (result: String) -> Unit) {
+    fun secondWork(previousResult: String, onFinished: (result: String) -> Unit) {
         Thread {
             Thread.sleep(1000)
-            onFinished("Work 1 done")
+            onFinished("$previousResult Work 2 done")
+        }.start()
+    }
+
+    fun thirdWork(previousResult: String, onFinished: (result: String) -> Unit) {
+        Thread {
+            Thread.sleep(1000)
+            onFinished("$previousResult Work 3 done")
+        }.start()
+    }
+
+    fun fourWork(previousResult: String, onFinished: (result: String) -> Unit) {
+        Thread {
+            Thread.sleep(1000)
+            onFinished("$previousResult Work 4 done")
         }.start()
     }
 }
