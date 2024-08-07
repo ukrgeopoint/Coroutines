@@ -13,6 +13,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    fun firstWork(onFinished: (result: String) -> Unit) {
+        Thread {
+            Thread.sleep(1000)
+            onFinished("Work 1 done")
+        }.start()
+    }
+
     fun secondWork(previousResult: String, onFinished: (result: String) -> Unit) {
         Thread {
             Thread.sleep(1000)
