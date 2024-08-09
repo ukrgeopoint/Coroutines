@@ -3,6 +3,7 @@ package com.example.coroutines
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
                     textView.text = uiState.title
                 }
                 is MyViewModel.UIState.Processing -> textView.text = "Processing..."
+                is MyViewModel.UIState.Error -> {
+                    textView.text = ""
+                    Toast.makeText(this, uiState.description, Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
